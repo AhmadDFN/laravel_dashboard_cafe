@@ -1,0 +1,168 @@
+/* Custom */
+
+.thumb-menu {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: top center;
+    -o-object-fit: cover;
+    -o-object-position: top center;
+    border: 10px solid pink;
+}
+
+.thumb-menu-big {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top center;
+    -o-object-fit: cover;
+    -o-object-position: top center;
+}
+
+/* Transaksi */
+
+/* Menu List */
+.menu-list .menu-item .inner {
+    position: relative;
+    border: 1px solid #000;
+    margin-bottom: 15px;
+}
+
+.menu-list .menu-item .inner .thumb-menu {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    object-position: center top;
+    -o-object-position: center top;
+}
+
+.menu-list .menu-item .inner h2 {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #095336;
+}
+
+.menu-list .menu-item .inner h2 span {
+    color: red;
+}
+
+/* Form Transaksi */
+.transaksi {
+    position: relative;
+    padding: 15px;
+    background-color: #0b0a3e;
+    height: 100vh;
+    font-family: monospace;
+}
+
+.transaksi h2 {
+    position: relative;
+    font-size: 22px;
+}
+
+.transaksi #meja {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid green;
+}
+
+
+.transaksi .detail {
+    position: relative;
+    height: 52vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.transaksi .detail:hover {
+    overflow-y: auto;
+}
+
+.transaksi .detail .detail-item {
+    position: relative;
+    padding: 0 5px;
+    margin: 5px 0;
+}
+
+.transaksi .detail .detail-item h4 {
+    position: relative;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.transaksi .detail .detail-item .price h4 {
+    position: relative;
+    text-align: right;
+    font-size: 16px;
+}
+
+.transaksi .detail .detail-item .price h4 span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.transaksi .detail .detail-item input[type="number"] {
+    background-color: #d8f7d5;
+    display: inline-block;
+    width: 50px;
+    border: 0;
+    margin-left: 10px;
+}
+
+.transaksi .detail .detail-item input[type="number"]:focus {
+    outline: none;
+}
+
+.transaksi .detail .detail-item .delete {
+    font-size: 18px;
+    color: #ff0000;
+    display: none;
+    text-align: right;
+}
+
+.transaksi .detail .detail-item:hover .delete {
+    display: block;
+}
+
+.transaksi .other-item p {
+    margin: 2px 0;
+}
+
+.transaksi .price p {
+    position: relative;
+    text-align: right;
+}
+
+.transaksi .price p span {
+    position: absolute;
+    left: 0;
+}
+
+.transaksi #amount {
+    position: relative;
+    text-align: right;
+    font-size: 30px;
+}
+
+.transaksi #amount span {
+    position: absolute;
+    left: 0;
+}
+
+.transaksi .btn-action button {
+    width: 100%;
+}
