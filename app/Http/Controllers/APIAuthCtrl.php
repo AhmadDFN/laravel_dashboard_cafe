@@ -79,4 +79,41 @@ class APIAuthCtrl extends Controller
 
         return response()->json($mess);
     }
+
+    function user(Request $req)
+    {
+        $dtUser = $req->json()->all();
+
+        //Update User
+        if ($dtUser["password"]) {
+            if ($dtUser["password"] == $dtUser["password2"]) {
+                $save = User::where("id", $dtUser["id"])->update([
+                    "name" => $dtUser["name"],
+                    "password" => Hash::make($dtUser["password"])
+                ]);
+            } else {
+                $save = NULL;
+                $salah = true;
+            }
+        } else {
+            $save = User::where("id", $dtUser["id"])->update([
+                "name" => $dtUser["name"],
+            ]);
+        }
+
+        if ($save) {
+            //Get Data User
+            $user = User::where("id", $dtUser["id"])->first();
+
+            $mess = ["error" => 0, "mess" => "Data User Berhasil di Update !", "data" => ["user" => collect($user)]];
+        } else {
+            if ($salah) {
+                $mess = ["error" => 1, "mess" => "Password 1 dan 2 salah", "data" => null];
+            } else {
+                $mess = ["error" => 1, "mess" => "Data User Gagal di Update", "data" => null];
+            }
+        }
+
+        return response()->json($mess);
+    }
 }

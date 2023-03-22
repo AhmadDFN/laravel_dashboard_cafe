@@ -25,6 +25,7 @@ Route::get('category', [APIMenuCtrl::class, 'getCategory']);
 // Auth
 Route::post('login', [APIAuthCtrl::class, 'getLogin']);
 Route::post('register', [APIAuthCtrl::class, 'register']);
+Route::post('user', [APIAuthCtrl::class, 'user']);
 
 // Transaksi
 Route::get('trans/{id_cus}', [APITransCtrl::class, 'getTrans']);

@@ -13,7 +13,7 @@ class APICustomerCtrl extends Controller
     {
         $dtMember =  $req->json()->all();
         //  return json_encode($dtMember);
-        $kode = $dtMember["cus_kd"] ? $dtMember["cus_kd"] : Str::upper(Str::random(10)); // Random Text
+        $kode = $dtMember["cus_kd"] ? $dtMember["cus_kd"] : "CSTMR" . Str::upper(Str::random(5)); // Random Text
 
         // Proses Simpan
         //  Update Data Member
