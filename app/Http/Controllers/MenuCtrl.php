@@ -32,7 +32,6 @@ class MenuCtrl extends Controller
             "dtCat" => Category::All(),
             "dtKitchen" => Kitchens::All(),
             "rsMenu" => Menu::where("id", $req->id_menu)->first(),
-
         ];
 
         return view("menu.form", $data);

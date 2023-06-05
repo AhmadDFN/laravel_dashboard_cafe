@@ -25,9 +25,8 @@ use App\Http\Controllers\DashboardCtrl;
 Route::group(["middleware" => "auth"], function () {
 
     Route::get('/', [DashboardCtrl::class, "index"]);
-
     // Route Customers
-    Route::resource('customers', CustomersCtrl::class)->middleware("roleOpr");;
+    Route::resource('customers', CustomersCtrl::class)->middleware("roleOpr");
     Route::get('cus/form', [CustomersCtrl::class, "create"])->middleware("roleAdmin");
     // Route Category
     Route::get("category", [CategoryCtrl::class, "index"])->middleware("roleOpr");

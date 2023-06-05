@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kitchens;
+use Exception;
 use Illuminate\Http\Request;
 
 class KitchensCtrl extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $data = [
             'title' => 'Kitchens',
             'page' => 'Data Kitchens',
@@ -16,16 +18,18 @@ class KitchensCtrl extends Controller
         return view('kitchens.data', $data);
     }
 
-    public function form(Request $req){
+    public function form(Request $req)
+    {
         $data = [
             'title' => 'Kitchens',
-            'page' =>'Tambah Data Kitchens',
-            'rsKitch' => Kitchens::where('id',$req->id_kitch)->first()
+            'page' => 'Tambah Data Kitchens',
+            'rsKitch' => Kitchens::where('id', $req->id_kitch)->first()
         ];
         return view('kitchens.form', $data);
     }
 
-    public function save(Request $req){
+    public function save(Request $req)
+    {
         $req->validate(
             [
                 'kitc_nm' => 'required|unique:kitchens|max:20'
@@ -53,32 +57,33 @@ class KitchensCtrl extends Controller
                 'type' => 'success',
                 'text' => 'Data Dapur Berhasil Disimpan !'
             ];
-        } catch(Exception $err){
+        } catch (Exception $err) {
             //Notif
             $notif = [
                 'type' => 'danger',
-                'text' => 'Data Dapur Gagal Disimpan !'.$err->getMessage()
-            ];            
+                'text' => 'Data Dapur Gagal Disimpan !' . $err->getMessage()
+            ];
         }
         return redirect(url('kitchens'))->with($notif);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         try {
             //Save
-            Kitchens::where('id',$id)->delete();
+            Kitchens::where('id', $id)->delete();
 
             //Notif
             $notif = [
                 'type' => 'success',
                 'text' => 'Data Dapur Berhasil Dihapus !'
             ];
-        } catch(Exception $err){
+        } catch (Exception $err) {
             //Notif
             $notif = [
                 'type' => 'danger',
-                'text' => 'Data Dapur Gagal Dihapus !'.$err->getMessage()
-            ];            
+                'text' => 'Data Dapur Gagal Dihapus !' . $err->getMessage()
+            ];
         }
         return redirect(url('kitchens'))->with($notif);
     }
