@@ -18,7 +18,7 @@ class APIMenuCtrl extends Controller
             $sql .= " WHERE menus.mn_cat_id = " . $req->id_cat;
         }
 
-        $menu = DB::select($sql);
+        $menu = DB::select($sql); 
         
         $nmenu = collect($menu);
         
